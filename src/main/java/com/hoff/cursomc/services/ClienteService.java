@@ -5,22 +5,21 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.hoff.cursomc.domain.Categoria;
-import com.hoff.cursomc.repositories.CategoriaRepository;
+import com.hoff.cursomc.domain.Cliente;
+import com.hoff.cursomc.repositories.ClienteRepository;
 import com.hoff.cursomc.services.exceptions.ObjectNotFoundException;
 
 
-
 @Service
-public class CategoriaService {
+public class ClienteService {
 	
 	@Autowired
-	private CategoriaRepository repo;
+	private ClienteRepository repo;
 	
-	public Categoria find(Integer id)  {
-		Optional<Categoria> obj = repo.findById(id);
+	public Cliente find(Integer id)  {
+		Optional<Cliente> obj = repo.findById(id);
 		return obj.orElseThrow(() -> new ObjectNotFoundException(
-				"Objeto não encontrado! Id: " + id + ", Tipo: " + Categoria.class.getName()));
+				"Objeto não encontrado! Id: " + id + ", Tipo: " + Cliente.class.getName()));
 	}
 
 }
